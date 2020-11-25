@@ -16,4 +16,4 @@ myApp = decodeBody policy >> dir ".well-known" (dir "acme-challenge" fileServing
 
 
 fileServing :: ServerPart Response
-fileServing = serveDirectory DisableBrowsing ["index.html"] "/var/lib/acme/acme-challenges/.well-known/acme-challenge/"
+fileServing = serveDirectory DisableBrowsing ["index.html"] "/var/lib/acme/acme-challenge/.well-known/acme-challenge/"
