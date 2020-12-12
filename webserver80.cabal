@@ -24,6 +24,7 @@ executable webserver80
   ghc-options:         -threaded -Wall
   build-depends:       base >=4.12
                      , happstack-server
+                     , happstack-server-tls
 
   -- hs-source-dirs:
   default-language:    Haskell2010

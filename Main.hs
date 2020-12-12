@@ -1,11 +1,17 @@
 module Main (main) where
 
 import Happstack.Server
+import Happstack.Server.SimpleHTTPS
 
 main :: IO ()
-main = simpleHTTP conf myApp
+main = simpleHTTPS conf myApp
   where
-    conf = nullConf { port=80 }
+    -- Create the ceritficates with the following command:
+    --   $ openssl req -x509 -newkey rsa:4096 -keyout privkey.pem -out cert.pem -days 900 -nodes -subj '/CN=hi7-c-0002c.hi.de.bosch.com'
+    conf = nullTLSConf { tlsPort=43443
+                       , tlsCert="./cert.pem"
+                       , tlsKey="./privkey.pem"
+                       }
 
 
 myApp :: ServerPart Response
