@@ -4,7 +4,8 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, cabal-install, random, happstack-server, happstack-server-tls, process, haskell-language-server, hlint, stdenv }:
+  f = { mkDerivation, base, cabal-install, random, happstack-server, happstack-server-tls, process
+      , haskell-language-server, optparse-applicative, hlint, stdenv }:
       mkDerivation {
         pname = "webserver80";
         version = "0.1.0.0";
@@ -16,7 +17,7 @@ let
           haskell-language-server
           hlint
         ];
-        executableHaskellDepends = [ base random happstack-server happstack-server-tls process ];
+        executableHaskellDepends = [ base random happstack-server happstack-server-tls optparse-applicative process ];
         license = "unknown";
         hydraPlatforms = stdenv.lib.platforms.none;
       };

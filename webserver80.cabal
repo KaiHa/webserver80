@@ -25,6 +25,7 @@ executable webserver80
   build-depends:       base >=4.12
                      , happstack-server
                      , happstack-server-tls
+                     , optparse-applicative
                      , process
                      , random
 
